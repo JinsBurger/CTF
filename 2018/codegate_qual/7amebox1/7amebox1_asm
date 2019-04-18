@@ -82,4 +82,3 @@ func_0xcd :
 	0xcd : jmp(ZF) -0x69fc1
 	0xd2 : mov r6 , [r2]
 	0xd4 : call r5
-[Finished in 0.1s]
