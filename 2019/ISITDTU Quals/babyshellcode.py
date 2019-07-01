@@ -25,7 +25,7 @@ _loop:
 _bad:
 '''
 
-flag = "ISITDTU{y0ur_sh3llc0d3_Sk!LL_s0"
+flag = ""
 idx = len(flag) - 8
 print "idx : " + str(idx)
 
