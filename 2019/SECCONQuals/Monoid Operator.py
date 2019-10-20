@@ -1,7 +1,6 @@
 from pwn import *
 
 #p = process("./monoid_operator")
-#p = process("./monoid_operator")
 p = remote("monoidoperator.chal.seccon.jp",27182) 
 
 p.sendlineafter("?","+")
