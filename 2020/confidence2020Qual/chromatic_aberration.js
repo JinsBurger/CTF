@@ -44,7 +44,7 @@ console.log("properties1 : 0x" + properties1.toString(16));
 
 properties2 = PTR_BASE + read32(properties1+12) - 1;
 
-console.log("properties1 : 0x" + properties2.toString(16));
+console.log("properties2 : 0x" + properties2.toString(16));
 
 code = PTR_BASE + read32(properties2+0x18) - 1;
 
