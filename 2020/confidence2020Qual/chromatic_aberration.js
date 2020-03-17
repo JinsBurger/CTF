@@ -42,11 +42,11 @@ properties1 = PTR_BASE + read32(ptr+0x38) - 1;
 
 console.log("properties1 : 0x" + properties1.toString(16));
 
-properties2 = PTR_BASE + read32(properties1+12) - 1;
+prototype = PTR_BASE + read32(properties1+12) - 1;
 
-console.log("properties2 : 0x" + properties2.toString(16));
+console.log("prototype : 0x" + prototype.toString(16));
 
-code = PTR_BASE + read32(properties2+0x18) - 1;
+code = PTR_BASE + read32(prototype+0x18) - 1;
 
 console.log("code : 0x" + code.toString(16));
 
