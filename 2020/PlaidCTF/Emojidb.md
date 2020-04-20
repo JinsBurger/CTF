@@ -6,7 +6,7 @@ I exploited Emojidb with analyzed result below. It could be wrong
 
 First, before calling `_IO_wdo_write` , `_IO_wfile_xsputn` copies data to `_wide_data->_IO_write_ptr (short_buf)`
 
-After \_IO\_wdo\_write , It is supposed to rearrange write_base,write_end,.. of `_wide_data`  <strong>except fail to print data. </strong>
+After `_IO_wdo_write` , It is supposed to rearrange write_base,write_end,.. of `_wide_data`  <strong>except fail to print data. </strong>
 
 ```C
 int
@@ -73,11 +73,11 @@ _IO_wfile_xsputn (_IO_FILE *f, const void *data, _IO_size_t n)
 
 1. `_IO_write_ptr` will be increased by size of data. 
 2. `_IO_new_do_write` returns EOF because stderr is closed by run.sh
-3. So \_IO\_wdo\_write doesn't rearrange `_IO_FILE` section of  `_wide_data` , but `_IO_write_ptr` is already increased.
-4. After `__fwprintf_chk(stderr, 1LL, &off_1038, v4);` , \_IO\_write\_ptr is bigger than \_IO\_write\_end
+3. So `_IO_wdo_write` doesn't rearrange `_IO_FILE` section of  `_wide_data` , but `_IO_write_ptr` is already increased.
+4. After `__fwprintf_chk(stderr, 1LL, &off_1038, v4);` , `_IO_write_ptr` is bigger than `_IO_write_end`
 5. `count` type of `_IO_wfile_xsputn` is `_IO_size_t (size_t , unsigned long)` . Next time the function is called , `count = f->_wide_data->_IO_write_end - f->_wide_data->_IO_write_ptr;` is not negative and we can pass the `if (count > 0)` condition.
 6. Overwrite payload from `_wide_data->short_buf` to ` _wide_vtable`
-7. Lastly If ` _wide_vtable`  was overwritten with system, Send wrong unicode data. 
+7. Lastly If ` _wide_vtable`  was overwritten with system, Send wrong unicode data to call system. 
 8. Get shell
 
 
