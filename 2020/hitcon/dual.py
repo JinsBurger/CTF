@@ -7,8 +7,6 @@ p = remote("13.231.226.137",9573)
 go = lambda x: p.sendlineafter(">",str(x))
 go2 = lambda x: p.sendafter(">",str(x))
 
-opcodes = ""
-
 CREATE = "1"
 CONNECT = "2"
 DISCONNECT = "3"
@@ -16,8 +14,6 @@ WRITE_TEXT = "4"
 WRITE_BIN = "5"
 READ_TEXT = "6"
 GC_RU = "7"
-
-assert(len(opcodes) < 15)
 
 go(WRITE_BIN)
 go(0)
